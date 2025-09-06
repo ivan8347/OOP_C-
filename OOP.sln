@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP", "OOP\OOP.csproj", "{F480C38B-C5A5-4133-8E51-3E9DED24031E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraction", "Fraction\Fraction.csproj", "{C4C44961-698E-4405-97C1-7C8D75CBAC5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F480C38B-C5A5-4133-8E51-3E9DED24031E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F480C38B-C5A5-4133-8E51-3E9DED24031E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F480C38B-C5A5-4133-8E51-3E9DED24031E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4C44961-698E-4405-97C1-7C8D75CBAC5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4C44961-698E-4405-97C1-7C8D75CBAC5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4C44961-698E-4405-97C1-7C8D75CBAC5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C44961-698E-4405-97C1-7C8D75CBAC5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
