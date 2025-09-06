@@ -11,28 +11,28 @@ namespace Fraction
         private int integer;
         private int numerator;
         private int denominator;
-        public int get_numerator()
+    public int get_numerator()
         {
             return numerator;
         }
-        public int get_ineger() { return integer; }
+    public int get_ineger() { return integer; }
         public int get_denominator() {  return denominator; }
         public Fraction()
         {
             this.integer = 0;
             this.numerator = 0;
             this.denominator = 1;
-           
-            //Console.WriteLine ($ "DefaultConstructor:\t  {this}" );
-        }
-        public Fraction(int integer)
-        {   this.integer = integer;
-            this.numerator = 0;
-            this.denominator = 1;
-           // cout << "SingleArgConstructor:\t" << this << endl;
 
-        }
-       public Fraction(int numerator, int denominator)
+            Console.WriteLine($"DefaultConstructor:\t  {this}"); 
+   }
+   public Fraction(int integer)
+ {   this.integer = integer;
+     this.denominator = 1;
+    // Console.WriteLine($"SingleArgConstructor:\t {GetHashCode()ToString("X")}  {this}"); 
+    // cout << "SingleArgConstructor:\t" << this << endl;
+
+ }
+  public Fraction(int numerator, int denominator)
         {
             this.integer = 0;
             this.numerator = numerator;
@@ -41,7 +41,7 @@ namespace Fraction
 
            // cout << "Constructor:\t\t" << this << endl;
         }
-       public Fraction(int integer, int numerator, int denominator)
+  public Fraction(int integer, int numerator, int denominator)
         {
             this.integer  = integer;
             this.numerator = numerator;
@@ -80,7 +80,7 @@ namespace Fraction
 		this.integer = other.integer;
 		this.numerator = other.numerator;
 		this.denominator = other.denominator;
-		Console.WriteLine($"\t CopyConstructor : { this}");
+		Console.WriteLine($"\t CopyConstructor : {this}");
 	}
        // "="
         public object Clone()
@@ -98,7 +98,7 @@ namespace Fraction
         {
             integer += numerator / denominator;
             numerator %= denominator;
-            if (numerator < 0) numerator *= (-1);
+            if (numerator < 0) numerator *= -1;
             return this;
         }
        public Fraction inverted()
@@ -126,10 +126,10 @@ namespace Fraction
         //  '/'
        public static Fraction operator /( Fraction left,  Fraction right)
        {
-            Fraction l = (Fraction)left.Clone();
-            Fraction r = (Fraction)right.Clone();
-            return (l * r.inverted());
-            
+            //Fraction l = (Fraction)left.Clone();
+            //Fraction r = (Fraction)right.Clone();
+            //return (l * r.inverted());
+            return left * right.inverted();
         }
 
         //  "+"
