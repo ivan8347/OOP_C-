@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
 using System.Diagnostics;
+using System.Data;
+using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms;
 
 namespace Geometry
 {
@@ -13,33 +17,51 @@ namespace Geometry
     {
         static void Main(string[] args)
         {
+             int width = 1200;
+             int height = 600;
 
-            
-                int width = 200;
-                int height = 200;
+             // Создаем пустое изображение
+             using (Bitmap bmp = new Bitmap(width, height))
+             {
+                 using (Graphics g = Graphics.FromImage(bmp))
+                 {
+                    // Задаем фон
+                    g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
+                    g.FillRectangle(Brushes.Green, 0, 300, width, 300);
+                    Circle circle = new Circle(100, 100, 80,Color.Yellow, Color.Yellow, 3);
+                     circle.Fill(g); // заливаем круг
+                     circle.Draw(g); // рисуем контур
+                    var rectangle = new Rectangle(700, 450,  200, 150, Color.Violet, Color.Black, 3 );
+                    rectangle.Fill(g);
+                    rectangle.Draw(g);
+                    var p1 = new PointF(700, 300);
+                    var quadrilateral = new Quadrilateral(p1, 150, 150, 100, Color.Violet, Color.Black, 3); 
+                    quadrilateral.Fill(g);  
+                    quadrilateral.Draw(g);
 
-                // Создаем пустое изображение
-                using (Bitmap bmp = new Bitmap(width, height))
-                {
-                    using (Graphics g = Graphics.FromImage(bmp))
-                    {
-                        // Задаем фон
-                        g.Clear(Color.White);
 
-                        // Рисуем круг (элипс, вписанный в прямоугольник)
-                        Pen pen = new Pen(Color.Blue, 3);
-                        g.DrawEllipse(pen, 10, 10, width - 20, height - 20);
-                    }
 
-                    // Сохраняем изображение
-                    bmp.Save("circle.png", System.Drawing.Imaging.ImageFormat.Png);
+
+
                 }
-            Process.Start("circle.png");
-            Console.WriteLine("Изображение сохранено как circle.png");
-            Console.WriteLine("Текущий каталог: " + Directory.GetCurrentDirectory());
+                 // Сохраняем изображение
+                 bmp.Save("output.png", System.Drawing.Imaging.ImageFormat.Png);
+             }
+             Process.Start("output.png");
+             Console.WriteLine("Текущий каталог: " + Directory.GetCurrentDirectory());
 
+
+
+          
         }
-
-    
     }
+
 }
+
+        
+    
+
+
+
+
+
