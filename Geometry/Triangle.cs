@@ -8,49 +8,42 @@ using System.Threading.Tasks;
 
 namespace Geometry
 {
-    internal class Quadrilateral
+    internal class Triangle
     {
         public Point P1 { get; set; }
         public Point P2 { get; set; }
         public Point P3 { get; set; }
-        public Point P4 { get; set; }
         public Color Color { get; set; }
         public int Thickness { get; set; }
         public Color FillColor { get; set; }
 
-        public Quadrilateral(Point p1, Point p2, Point p3, Point p4, Color fillColor, Color color, int thickness)
+        public Triangle(Point p1, Point p2, Point p3, Color fillColor, Color color, int thickness)
         {
             P1 = p1;
             P2 = p2;
             P3 = p3;
-            P4 = p4;
             Color = color;
-            FillColor = fillColor;
             Thickness = thickness;
-        }
-        public PointF[] CalculatePoints(int width, int height, int offsetY)
-        {
-            PointF p1 = new PointF(700, 300);
-            PointF p2 = new PointF(p1.X + width, p1.Y - offsetY);
-            PointF p3 = new PointF(p2.X, p2.Y + height);
-            PointF p4 = new PointF(p1.X, p1.Y + height);
-            return new PointF[] { p1, p2, p3, p4 };
+            FillColor = fillColor;
         }
         public void Draw(Graphics g)
         {
             using (Pen pen = new Pen(Color, Thickness))
             {
-                Point[] points = { P1, P2, P3, P4 };
+                Point[] points = { P1, P2, P3 };
+
                 g.DrawPolygon(pen, points);
             }
         }
         public void Fill(Graphics g)
         {
+
             using (SolidBrush brush = new SolidBrush(FillColor))
             {
-                Point[] points = { P1, P2, P3, P4 };
+                Point[] points = { P1, P2, P3 };
                 g.FillPolygon(brush, points);
             }
+
         }
     }
 }

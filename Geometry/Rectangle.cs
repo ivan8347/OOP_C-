@@ -35,6 +35,7 @@ namespace Geometry
                 // Верхний левый угол
                 int left = X - Width ;
                 int top = Y - Height ;
+                
                 g.DrawRectangle(pen, left, top, Width, Height);
             }
         }
