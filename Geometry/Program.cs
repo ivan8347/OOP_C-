@@ -29,9 +29,11 @@ namespace Geometry
                     g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
                     g.FillRectangle(Brushes.Green, 0, 300, width, 300);
 
-                    DrawCloud(g, 300, 100, 50); DrawCloud(g, 500, 80, 70); DrawCloud(g, 800, 120, 60);
+                    DrawingUtils.DrawCloud(g, 300, 100, 50);
+                    DrawingUtils.DrawCloud(g, 700, 60, 50);
+                    DrawingUtils.DrawCloud(g, 1000, 100, 70);
 
-                    var circle = new Circle(100, 100, 80, Color.Yellow, Color.Yellow, 3);
+                    var circle = new Circle(100, 100, 60, Color.Yellow, Color.Yellow, 3);
                     circle.Fill(g); 
                     circle.Draw(g); 
                     var rectangle = new Rectangle(700, 450, 200, 150, Color.Violet, Color.Black, 3);

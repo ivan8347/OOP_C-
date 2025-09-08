@@ -43,17 +43,7 @@ namespace Geometry
              
          }
 
-        // Метод для рисования тучки
-        public static void DrawCloud(Graphics g, int x, int y, int size)
-        {
-            // Рисуем несколько окружностей, чтобы создать тучку
-            g.FillEllipse(Brushes.White, x, y, size, size);
-            g.FillEllipse(Brushes.White, x + size / 2, y - size / 4, size, size);
-            g.FillEllipse(Brushes.White, x + size, y, size, size);
-            g.FillEllipse(Brushes.White, x + size / 3, y + size / 4, size, size);
-            g.FillEllipse(Brushes.White, x + size * 2 / 3, y + size / 4, size, size);
-        }
-
+       
 
     }
 }
