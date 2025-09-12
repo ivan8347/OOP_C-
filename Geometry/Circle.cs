@@ -9,41 +9,20 @@ namespace Geometry
 {
     internal class Circle
     {
-         public int X {  get; set; }
-         public int Y { get; set; }
-         public int Radius { get; set; }
-         public Color Color { get;set;}
-         public int Thickness { get; set;}
-         public Color FillColor { get; set; } 
-         public Circle(int x, int y, int radius,Color fillColor, Color color, int thickness)
-         {
-             X = x;
-             Y = y;
-             Radius = radius;
-             Color = color;
-             Thickness = thickness;
-             FillColor = fillColor;
-         }
+        public static void DrawCircle(Graphics g, int x, int y, int radius, Color fillColor, Color color, int thickness)
+        {      
+            using (Pen pen = new Pen(color, thickness))
+            {
+                g.DrawEllipse(pen, x - radius, y - radius, radius * 2, radius * 2);
+            }
+   
+            using (SolidBrush brush = new SolidBrush(fillColor))
+            {
+                g.FillEllipse(brush, x - radius, y - radius, radius * 2, radius * 2);
+            }
 
-         public void Draw(Graphics g)
-         {
-             // Рисуем круг (элипс, вписанный в прямоугольник)
-             using (Pen pen = new Pen(Color, Thickness))
-             {
-                 g.DrawEllipse(pen, X - Radius, Y - Radius, Radius * 2, Radius * 2);
-             }
-         }
-         public void Fill(Graphics g)
-         {
-            
-                 using (SolidBrush brush = new SolidBrush(FillColor))
-                 {
-                     g.FillEllipse(brush, X - Radius, Y - Radius, Radius * 2, Radius * 2);
-                 }
-             
-         }
-
-       
+        }
 
     }
+
 }
