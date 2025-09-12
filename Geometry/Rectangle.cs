@@ -9,13 +9,12 @@ namespace Geometry
 {
     internal class Rectangle
     {
-       
         
         public static void DrawRectangle(Graphics g, int x, int y, int width, int height, Color fillColor, Color color, int thickness)
         {
        
             using (Pen pen = new Pen(color, thickness))
-            {
+            {   
                 // Верхний левый угол
                 g.DrawRectangle(pen, x, y, width, height);
             }

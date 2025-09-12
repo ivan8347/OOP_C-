@@ -10,7 +10,7 @@ namespace Geometry
 {
     internal class Quadrilateral
     {
-        public Point P1 { get; set; }
+      /*  public Point P1 { get; set; }
         public Point P2 { get; set; }
         public Point P3 { get; set; }
         public Point P4 { get; set; }
@@ -51,6 +51,26 @@ namespace Geometry
                 Point[] points = { P1, P2, P3, P4 };
                 g.FillPolygon(brush, points);
             }
+        }*/
+
+        public static void DrawQuadrilateral(Graphics g, Point p1, Point p2, Point p3, Point p4, Color fillColor, Color color, int thickness)
+        {
+            Point[] points = { p1, p2, p3, p4 };
+            using (Pen pen = new Pen(color, thickness))
+            {
+                // Верхний левый угол
+                g.DrawPolygon(pen, points);
+            }
+
+            using (SolidBrush brush = new SolidBrush(fillColor))
+            {
+
+                g.FillPolygon(brush, points);
+            }
+
         }
+
+
+
     }
 }
