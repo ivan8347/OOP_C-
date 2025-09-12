@@ -94,8 +94,6 @@ namespace Geometry
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-
-
 using Geometry;
 
 namespace Animation
@@ -108,22 +106,23 @@ namespace Animation
         private float cloud1X = 300;
         private float cloud2X = 700;
         private float cloud3X = 1000;
+        private float cloud4X = 500;
         private int width = 1200;
         private int height = 600;
-        private int cloudSpeed = 5;
+        private int cloudSpeed = 1;
 
         public MainForm()
         {
             this.Width = width;
             this.Height = height;
-            this.Text = "Анимация облаков";
+          
 
             pictureBox = new PictureBox();
             pictureBox.Dock = DockStyle.Fill;
             this.Controls.Add(pictureBox);
 
             timer = new Timer();
-            timer.Interval = 50; // 20 кадров в секунду
+            timer.Interval = 50; 
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -141,6 +140,7 @@ namespace Animation
                 Cloud.DrawCloud(g, (int)cloud1X, 100, 50);
                 Cloud.DrawCloud(g, (int)cloud2X, 60, 50);
                 Cloud.DrawCloud(g, (int)cloud3X, 100, 70);
+                Cloud.DrawCloud(g, (int)cloud4X, 50, 30);
 
                 Geometry.Rectangle.DrawRectangle(g, 500, 300, 200, 150, Color.Violet, Color.Black, 3);
                 Geometry.Rectangle.DrawRectangle(g, 550, 350, 100, 50, Color.White, Color.Black, 3);
@@ -148,7 +148,7 @@ namespace Animation
                 Quadrilateral.DrawQuadrilateral(g, new Point(600, 250), new Point(750, 175), new Point(850, 210), new Point(700, 300), Color.Orange, Color.Black, 3);
                 Quadrilateral.DrawQuadrilateral(g, new Point(700, 300), new Point(850, 210), new Point(850, 340), new Point(700, 450), Color.Violet, Color.Black, 3);
                 Quadrilateral.DrawQuadrilateral(g, new Point(730, 380), new Point(830, 305), new Point(830, 260), new Point(730, 330), Color.White, Color.Black, 3);
-                Circle.DrawCircle(g, 100, 100, 60, Color.Yellow, Color.Yellow, 3);
+                Circle.DrawCircle(g, 100, 100, 50, Color.Yellow, Color.Yellow, 3);
                 Circle.DrawCircle(g, 600, 280, 10, Color.White, Color.Black, 3);
             }
 
@@ -160,11 +160,13 @@ namespace Animation
             cloud1X += cloudSpeed;
             cloud2X += cloudSpeed;
             cloud3X += cloudSpeed;
+            cloud4X += cloudSpeed;
 
             // Циклический эффект
             if (cloud1X > width + 50) cloud1X = -50;
             if (cloud2X > width + 50) cloud2X = -50;
             if (cloud3X > width + 50) cloud3X = -50;
+            if (cloud4X > width + 50) cloud4X = -50;
         }
 
 
