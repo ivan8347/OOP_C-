@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="Cloud.cs" />
-    <Compile Include="DrawingUtils.cs" />
+    <Compile Include="Girl.cs" />
     <Compile Include="Program.cs">
       <SubType>Form</SubType>
     </Compile>
