@@ -118,6 +118,9 @@ namespace Animation
         private int cloudSpeed = 1;
         private int girlSpeed = 2;
         private bool movingLeft = true;
+        private float circleX = 100;
+       // private bool circleY = 100;
+        private float circleSpeed = 0.5f;
 
         public MainForm()
         {
@@ -144,7 +147,7 @@ namespace Animation
                 g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
                 g.FillRectangle(Brushes.Green, 0, 300, width, 300);
 
-                Circle.DrawCircle(g, 100, 100, 50, Color.Yellow, Color.Yellow, 3);
+                Circle.DrawCircle(g,(int) circleX, 100, 50, Color.Yellow, Color.Yellow, 3);
                 g.DrawLine(new Pen(Color.Yellow, 10), 100, 20, 100, 180);
                 g.DrawLine(new Pen(Color.Yellow, 10), 20, 100, 180, 100);
                 g.DrawLine(new Pen(Color.Yellow, 10), 160, 45, 45, 160);
@@ -180,6 +183,8 @@ namespace Animation
                 cloud4X += cloudSpeed;
                 girlX -= girlSpeed;
                 girlY += girlSpeed;
+                circleX += circleSpeed;
+
 
                 float size = 30 + (girlY - 250) * 0.3f; // например, базовый 30, увеличивается с girlY
                 if (size < 30) size = 10; // минимальный размер
@@ -198,6 +203,7 @@ namespace Animation
                 if (cloud2X > width + 50) cloud2X = -50;
                 if (cloud3X > width + 50) cloud3X = -50;
                 if (cloud4X > width + 50) cloud4X = -50;
+                if (circleX > width + 50) circleX = -50;
 
                 if (girlX < 50) ;
                 if (girlY > 300) ;
