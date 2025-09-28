@@ -143,8 +143,21 @@ namespace Animation
             Bitmap bmp = new Bitmap(width, height);
             using (Graphics g = Graphics.FromImage(bmp))
             {
+                float minX = 0;
+                float maxX = width; // ширина окна
+                float t = (circleX - minX) / (maxX - minX);
+                if (t < 0) t = 0;
+                if (t > 1) t = 1;
+
+                Color startColor = Color.LightBlue;
+                Color endColor = Color.DarkSlateBlue;
+                int r = (int)(startColor.R + (endColor.R - startColor.R) * t);
+                int c = (int)(startColor.G + (endColor.G - startColor.G) * t);
+                int b = (int)(startColor.B + (endColor.B - startColor.B) * t);
+                Color backgroundColor = Color.FromArgb(r, c, b);
                 // Фон
-                g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
+                g.FillRectangle(new SolidBrush(backgroundColor), 0, 0, width, 300);
+               // g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
                 g.FillRectangle(Brushes.Green, 0, 300, width, 300);
 
                 Circle.DrawCircle(g,(int) circleX, 100, 50, Color.Yellow, Color.Yellow, 3);
@@ -209,6 +222,16 @@ namespace Animation
                 if (girlY > 300) ;
                 Girl.DrawGirl(g, (int)girlX, (int)girlY, (int)size);
 
+
+
+               
+               
+
+                
+
+
+                // Затем перед рисованием остальных элементов
+                
             }
         }
         static void Main()
