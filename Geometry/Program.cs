@@ -117,11 +117,15 @@ namespace Animation
         private int height = 600;
         private int cloudSpeed = 1;
         private int girlSpeed = 2;
-        private bool movingLeft = true;
         private float circleX = 100;
-       // private bool circleY = 100;
-        private float circleSpeed = 0.5f;
+        // private bool circleY = 100;
+       // private float targetCircleX = 1100;
+        private float circleSpeed = 2;
 
+        /*private Color currentBackgroundColor = Color.LightBlue;
+        private Color targetBackgroundColor = Color.DarkSlateBlue;
+        private float colorTransitionProgress = 0.01f; 
+        private bool isColorTransitioning = false;*/
         public MainForm()
         {
             this.Width = width;
@@ -144,23 +148,56 @@ namespace Animation
             using (Graphics g = Graphics.FromImage(bmp))
             {
                 float minX = 0;
-                float maxX = width; // ширина окна
-                float t = (circleX - minX) / (maxX - minX);
-                if (t < 0) t = 0;
-                if (t > 1) t = 1;
+                float maxX = width;
+                /*   float t = (circleX - 0) / (width); // 0..width для прогресса
+                   if (t > 1) t = 1;
+                   if (t < 0) t = 0;
+                   // Проверяем, достиг ли круг цели
+                   if (circleX >= targetCircleX && !isColorTransitioning)
+                   {
+                       isColorTransitioning = true;
+                       colorTransitionProgress = 0f; // начинаем интерполяцию
+                   }
 
-                Color startColor = Color.LightBlue;
-                Color endColor = Color.DarkSlateBlue;
-                int r = (int)(startColor.R + (endColor.R - startColor.R) * t);
-                int c = (int)(startColor.G + (endColor.G - startColor.G) * t);
-                int b = (int)(startColor.B + (endColor.B - startColor.B) * t);
-                Color backgroundColor = Color.FromArgb(r, c, b);
-                // Фон
-                g.FillRectangle(new SolidBrush(backgroundColor), 0, 0, width, 300);
-               // g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
+                   Color backgroundColor;
+                   if (isColorTransitioning)
+                   {
+                       // Плавное изменение цвета
+                       backgroundColor = ColorExtensions.Interpolate(currentBackgroundColor, targetBackgroundColor, colorTransitionProgress);
+                       // Увеличиваем прогресс
+                       colorTransitionProgress += 0.02f; // регулируйте скорость
+                       if (colorTransitionProgress >= 1f)
+                       {
+                           colorTransitionProgress = 1f;
+                           isColorTransitioning = false;
+                           currentBackgroundColor = targetBackgroundColor; // обновляем текущий цвет
+                       }
+                   }
+                   else
+                   {
+                       backgroundColor = currentBackgroundColor;
+                   }
+
+                   g.FillRectangle(new SolidBrush(backgroundColor), 0, 0, width, 300);*/
+
+
+                if (circleX < width)
+                {
+                    g.FillRectangle(Brushes.LightBlue, 0, 0, width, 300);
+                }
+                else
+                {
+                    g.FillRectangle(Brushes.DarkSlateBlue, 0, 0, width, 300);
+
+                }
                 g.FillRectangle(Brushes.Green, 0, 300, width, 300);
 
-                Circle.DrawCircle(g,(int) circleX, 100, 50, Color.Yellow, Color.Yellow, 3);
+
+
+
+
+
+                Circle.DrawCircle(g, (int)circleX, 100, 50, Color.Yellow, Color.Yellow, 3);
                 g.DrawLine(new Pen(Color.Yellow, 10), 100, 20, 100, 180);
                 g.DrawLine(new Pen(Color.Yellow, 10), 20, 100, 180, 100);
                 g.DrawLine(new Pen(Color.Yellow, 10), 160, 45, 45, 160);
@@ -183,7 +220,7 @@ namespace Animation
                 g.DrawLine(new Pen(Color.Black, 3), 780, 343, 780, 295);
                 Circle.DrawCircle(g, 600, 280, 10, Color.White, Color.Black, 3);
 
-              
+
 
                 // Обновляем изображение PictureBox
                 pictureBox.Image?.Dispose();
@@ -197,6 +234,11 @@ namespace Animation
                 girlX -= girlSpeed;
                 girlY += girlSpeed;
                 circleX += circleSpeed;
+                /*if (circleX >= targetCircleX && !isColorTransitioning)
+                {
+                    isColorTransitioning = true;
+                    colorTransitionProgress = 0f;
+                }*/
 
 
                 float size = 30 + (girlY - 250) * 0.3f; // например, базовый 30, увеличивается с girlY
@@ -210,30 +252,29 @@ namespace Animation
                 {
                     targetGirlY = 220; // девочка поднимается вверх
                 }
-               
+
                 // Циклический эффект
                 if (cloud1X > width + 50) cloud1X = -50;
                 if (cloud2X > width + 50) cloud2X = -50;
                 if (cloud3X > width + 50) cloud3X = -50;
                 if (cloud4X > width + 50) cloud4X = -50;
-                if (circleX > width + 50) circleX = -50;
+               // if (circleX > width + 50) circleX = -50;
 
                 if (girlX < 50) ;
                 if (girlY > 300) ;
                 Girl.DrawGirl(g, (int)girlX, (int)girlY, (int)size);
-
-
-
-               
-               
-
-                
-
-
-                // Затем перед рисованием остальных элементов
-                
             }
         }
+       /* public static class ColorExtensions
+        {
+            public static Color Interpolate(Color start, Color end, float t)
+            {
+                int r = (int)(start.R + (end.R - start.R) * t);
+                int g = (int)(start.G + (end.G - start.G) * t);
+                int b = (int)(start.B + (end.B - start.B) * t);
+                return Color.FromArgb(r, g, b);
+            }
+        }*/
         static void Main()
         {
             Application.EnableVisualStyles();
