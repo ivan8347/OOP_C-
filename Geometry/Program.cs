@@ -25,7 +25,7 @@ namespace Animation
 
 
         private float girlX = 100;
-        private float girlY = 450;
+        private float girlY = 20;
         private int girlSpeed = 5;
         private float targetGirlY = 450;
         private bool moveLeft, moveRight, moveUp, moveDown;
@@ -130,9 +130,9 @@ namespace Animation
                 cloud3X += cloudSpeed;
                 cloud4X += cloudSpeed;
              
-                float size = 30 + (girlY - 250) * 0.3f; 
-                if (size < 30) size = 10;
-                if (size > 100) size = 100; 
+                float size = 30 + (girlY - 150) * 0.3f; 
+                if (size < 10) size = 1;
+                if (size > 80) size = 80; 
                 int girlSize = (int)size;
 
                 // Циклический эффект
@@ -170,14 +170,20 @@ namespace Animation
                 Tree.DrawTree(g, 950, 550, 100);
                 Tree.DrawTree(g, 350, 550, 80);
                 Tree.DrawTree(g, 750, 450, 50);
-                //Tree1.DrawTree1(g, 800, 350, 60);
+
+                Tree1.DrawTree1(g, 850, 350, 50);
+                Tree1.DrawTree1(g, 750, 270, 70);
+                Tree1.DrawTree1(g, 50, 550, 150);
+                Tree1.DrawTree1(g, 380, 260, 110);
+                Tree1.DrawTree1(g, 1050, 390, 80);
+                Tree1.DrawTree1(g, 700, 550, 100);
 
                 Hause.DrawHause(g, 500, 300, 60);
                
                 Girl.DrawGirl(g, (int)girlX, (int)girlY, (int)size);
                 Circle.DrawCircle(g, 600, 450, 10, Color.Red, Color.Red, 3);
 
-                bool nowInZone = girlX >= 600 && girlY >= 450;
+                bool nowInZone = girlX == 600 && girlY == 450;
 
                 if (nowInZone && !girlInZone)
                 {
