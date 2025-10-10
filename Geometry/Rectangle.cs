@@ -12,7 +12,7 @@ namespace Geometry
         
         public static void DrawRectangle(Graphics g, int x, int y, int width, int height, Color fillColor, Color color, int thickness)
         {
-       
+           
             using (Pen pen = new Pen(color, thickness))
             {   
                 // Верхний левый угол

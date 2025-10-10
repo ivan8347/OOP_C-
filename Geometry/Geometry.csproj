@@ -52,6 +52,7 @@
     <Compile Include="Circle.cs" />
     <Compile Include="Cloud.cs" />
     <Compile Include="Girl.cs" />
+    <Compile Include="Hause.cs" />
     <Compile Include="Moon.cs" />
     <Compile Include="Program.cs">
       <SubType>Form</SubType>
@@ -60,6 +61,8 @@
     <Compile Include="Quadrilateral.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Sun.cs" />
+    <Compile Include="Tree.cs" />
+    <Compile Include="Tree1.cs" />
     <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>

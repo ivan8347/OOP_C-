@@ -25,7 +25,7 @@ namespace Animation
 
 
         private float girlX = 100;
-        private float girlY = 350;
+        private float girlY = 450;
         private int girlSpeed = 5;
         private float targetGirlY = 450;
         private bool moveLeft, moveRight, moveUp, moveDown;
@@ -113,9 +113,7 @@ namespace Animation
                 Cloud.DrawCloud(g, (int)cloud4X, 50, 30);
                 Cloud.DrawCloud(g, (int)cloud3X, 100, 70);
 
-
-
-                Geometry.Rectangle.DrawRectangle(g, 500, 300, 200, 150, Color.Violet, Color.Black, 3);
+              /* Geometry.Rectangle.DrawRectangle(g, 500, 300, 200, 150, Color.Violet, Color.Black, 3);
                 Geometry.Rectangle.DrawRectangle(g, 550, 350, 100, 50, Color.White, Color.Black, 3);
                 g.DrawLine(new Pen(Color.Black, 3), 600, 350, 600, 400);
                 Triangle.DrawTriangle(g, new Point(500, 300), new Point(700, 300), new Point(600, 250), Color.Violet, Color.Black, 3);
@@ -123,7 +121,7 @@ namespace Animation
                 Quadrilateral.DrawQuadrilateral(g, new Point(700, 300), new Point(850, 210), new Point(850, 340), new Point(700, 450), Color.Violet, Color.Black, 3);
                 Quadrilateral.DrawQuadrilateral(g, new Point(730, 380), new Point(830, 305), new Point(830, 260), new Point(730, 330), Color.White, Color.Black, 3);
                 g.DrawLine(new Pen(Color.Black, 3), 780, 343, 780, 295);
-                Circle.DrawCircle(g, 600, 280, 10, Color.White, Color.Black, 3);
+                Circle.DrawCircle(g, 600, 280, 10, Color.White, Color.Black, 3);*/
 
                 pictureBox.Image?.Dispose();
                 pictureBox.Image = bmp;
@@ -166,7 +164,16 @@ namespace Animation
                 if (moveDown && girlY < height - girlSize) girlY += girlSpeed;
                 if (moveLeft && girlX > 0) girlX -= girlSpeed;
                 if (moveRight && girlX < width - girlSize) girlX += girlSpeed;
+                Tree.DrawTree(g, 50, 350, 50);
+                Tree.DrawTree(g, 1000, 350, 40);
+                Tree.DrawTree(g, 200, 300, 30);
+                Tree.DrawTree(g, 950, 550, 100);
+                Tree.DrawTree(g, 350, 550, 80);
+                Tree.DrawTree(g, 750, 450, 50);
+                //Tree1.DrawTree1(g, 800, 350, 60);
 
+                Hause.DrawHause(g, 500, 300, 60);
+               
                 Girl.DrawGirl(g, (int)girlX, (int)girlY, (int)size);
                 Circle.DrawCircle(g, 600, 450, 10, Color.Red, Color.Red, 3);
 
