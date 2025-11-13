@@ -1,14 +1,14 @@
 ﻿
-#define ANIMATION
 
 
 
 
-#if ANIMATION
+
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Geometry;
+using MyLibrary;
 
 namespace Animation
 {
@@ -183,7 +183,11 @@ namespace Animation
                 Girl.DrawGirl(g, (int)girlX, (int)girlY, (int)size);
                 Circle.DrawCircle(g, 600, 450, 10, Color.Red, Color.Red, 3);
 
+                
+
+
                 bool nowInZone = girlX == 600 && girlY == 450;
+
 
                 if (nowInZone && !girlInZone)
                 {
@@ -191,17 +195,35 @@ namespace Animation
 
                     try
                     {
-                        System.Diagnostics.Process.Start("U:\\Users\\kit\\source\\repos\\Introdaction\\GAME2\\bin\\Debug\\GAME2.exe");
+                        System.Diagnostics.Process.Start("ConsoleTrainer.exe");
+
+                        // MyLibrary.Class1.RunTrainer(); // вызов метода из DLL
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ошибка запуска: " + ex.Message);
+                        MessageBox.Show("Ошибка запуска DLL: " + ex.Message);
                     }
                 }
                 else if (!nowInZone)
                 {
                     girlInZone = false; // сбрасываем, если вышла из зоны
                 }
+
+
+                //if (nowInZone && !girlInZone)
+                //{
+                //    girlInZone = true;
+
+                //    try
+                //    {
+                //        //System.Diagnostics.Process.Start("U:\\Users\\kit\\source\\repos\\Introdaction\\GAME2\\bin\\Debug\\GAME2.exe");
+                //        System.Diagnostics.Process.Start(Class1.RunTrainer());
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show("Ошибка запуска: " + ex.Message);
+                //    }
+                //}
 
             }
 
@@ -228,7 +250,7 @@ namespace Animation
     }
 }
 
-#endif
+
 
 
 

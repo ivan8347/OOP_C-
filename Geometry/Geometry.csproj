@@ -7,6 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3C18AC9D-4A1C-499C-B740-9CEFDDD1ECF7}</ProjectGuid>
     <OutputType>Exe</OutputType>
+   
     <RootNamespace>Geometry</RootNamespace>
     <AssemblyName>Geometry</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -16,7 +17,13 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+		
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -36,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConsoleTrainer">
+      <HintPath>.\ConsoleTrainer.exe</HintPath>
+    </Reference>
+    <Reference Include="MyLibrary">
+      <HintPath>.\MyLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
