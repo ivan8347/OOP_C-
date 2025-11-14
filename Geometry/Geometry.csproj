@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
@@ -12,8 +12,10 @@
 	    <HintPath>bin\Debug\ConsoleTrainer.exe</HintPath>
 	  </Reference>
 	  <Reference Include="MyLibrary">
-	    <HintPath>MyLibrary.dll</HintPath>
+	    <HintPath>bin\Debug\MyLibrary.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
 </Project>
+
+	
